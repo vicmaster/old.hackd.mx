@@ -18,6 +18,9 @@ group :development, :test do
   gem 'capybara-webkit'
   gem 'capybara'
 end
+
+gem 'simplecov', :require => false, :group => :test
+
 group :doc do
   gem 'sdoc', require: false
 end
