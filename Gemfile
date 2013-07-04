@@ -7,7 +7,7 @@ gem 'pg'
 gem 'sass-rails', '~> 4.0.0'
 
 gem 'uglifier', '>= 1.3.0'
-
+gem 'git-pair', git:'git://github.com/ryanbriones/git-pair.git'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 

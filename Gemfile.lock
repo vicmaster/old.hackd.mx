@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/ryanbriones/git-pair.git
+  revision: 9294cf9e40f714675bf66e670043b33ece2a92cf
+  specs:
+    git-pair (0.0.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -137,6 +143,7 @@ DEPENDENCIES
   capybara
   capybara-webkit
   coffee-rails (~> 4.0.0)
+  git-pair!
   jquery-rails
   pg
   rails (= 4.0.0)
