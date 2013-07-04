@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.0.rc2'
+gem 'rails', '4.0.0'
 
 gem 'pg'
 
-gem 'sass-rails', '~> 4.0.0.rc2'
+gem 'sass-rails', '~> 4.0.0'
 
 gem 'uglifier', '>= 1.3.0'
 
@@ -18,6 +18,7 @@ group :development, :test do
   gem 'capybara-webkit'
   gem 'capybara'
 end
+
 group :doc do
   gem 'sdoc', require: false
 end
