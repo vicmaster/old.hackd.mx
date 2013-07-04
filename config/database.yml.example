@@ -2,13 +2,12 @@ default: &default
   adapter: postgresql
   host: 127.0.0.1
   encoding: utf8
-  user:
+  user: postgres
   password:
 
 development:
   <<: *default
   database: hackd_dev
-  hola: <% 1 + 2 %>
 
 test:
   <<: *default
