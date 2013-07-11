@@ -21,6 +21,7 @@ end
 
 group :development do
   gem 'git-pair', git: 'git://github.com/ryanbriones/git-pair.git'
+  gem 'pry'
 end
 
 group :doc do
