@@ -1,0 +1,15 @@
+%li.event
+  .name
+    = event.name
+    %span
+      %em 
+        created by:
+        = event.user_id
+        publish date:
+      = event.created_at.strftime('%y/%d/%m')
+  .details
+    = event.details
+  
+  = link_to 'Edit', edit_event_path(event)
+  = link_to 'Show', event_path(event)
+  = link_to 'Back', events_path
