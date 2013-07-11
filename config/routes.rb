@@ -1,4 +1,4 @@
 Hackd::Application.routes.draw do
-  resource :home, only: :show
-  root to: 'home#show'
+   root 'events#index'
+   resources :events
 end
