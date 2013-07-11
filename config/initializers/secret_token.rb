@@ -9,8 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Hackd::Application.config.secret_key_base = if Rails.env.development?
-                                              'X' * 30
-                                            else
-                                              ENV['SECRET_KEY_BASE']
-                                            end
+Hackd::Application.config.secret_key_base = Rails.env.production? ? ENV['SECRET_KEY_BASE'] : 'X' * 30
