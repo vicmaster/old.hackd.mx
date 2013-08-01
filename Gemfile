@@ -5,6 +5,7 @@ ruby '1.9.3'
 gem 'rails', '4.0.0'
 gem 'pg'
 
+gem 'angularjs-rails'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'haml-rails', '~> 0.4'
 gem 'jquery-rails'
