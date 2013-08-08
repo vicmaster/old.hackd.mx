@@ -1,10 +1,12 @@
 Hackd::Application.routes.draw do
    root 'events#index'
-   # get '/auth/:provider/callback', to: 'sessions#create'
-   get '/auth/:provider/callback', :to => 'sessions#create'
-   get '/auth/failure', :to => 'sessions#failure'
-   post '/auth/:provider/callback', :to => 'sessions#create'
-   post '/auth/failure', :to => 'sessions#failure'
+
+   scope :auth  do 
+     get  ':provider/callback' => 'sessions#create'
+     post ':provider/callback'=>  'sessions#create'
+     get  'failure'           =>  'sessions#failure'
+     post 'failure'           =>  'sessions#failure'
+   end
 
    resources :events
 end

@@ -7,7 +7,7 @@ class CreateEvents < ActiveRecord::Migration
       t.string    :latitude
       t.string    :longitude
       t.string    :location_name
-      t.datetime  :schedule_time
+      t.datetime  :scheduled_at
       t.timestamps
     end
   end

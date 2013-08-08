@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  before_action :find_event, only: [ :edit, :show ]
+  before_action :event_params, only: [ :update ]
 
   def index
     @events = Event.all
@@ -8,7 +10,6 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @event = Event.find(params[:id])
   end
 
   def show
@@ -19,7 +20,7 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-    if @event.update_attributes(event_params)
+    if @event.update_attributes(@params)
       flash[:notice] = "Event updated successfully" 
       redirect_to events_path
     else
@@ -33,8 +34,12 @@ class EventsController < ApplicationController
 
   private
   def event_params
-    params.require(:event).permit(:name, :details, :location)
+     @params = params.require(:event).permit(:name, :details, :location)
   end
+
+  def find_event
+     @event = Event.find(params[:id])
+   end
 
 
 end

@@ -29,6 +29,6 @@ class SessionsController < ApplicationController
   def belongs_to_organization? token
     url = "https://api.github.com/user/orgs?access_token=#{token}"
     @organizations = HTTParty.get(url)
-    @organizations.map!{|x| x["login"]}.include? API_CONFIG['organization']
+    @organizations.map!{|x| x["login"]}.include? API_GITHUB_CONFIG['organization']
   end
 end
