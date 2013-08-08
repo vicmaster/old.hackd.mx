@@ -2,7 +2,6 @@ require 'net/http'
 
 class SessionsController < ApplicationController  
   def new
-    binding.pry
   end  
 
   def create
