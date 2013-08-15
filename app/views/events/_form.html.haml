@@ -1,0 +1,9 @@
+= render partial: 'layouts/error_messages', locals: { resource: @event}
+= form_for @event do |f|
+  = f.label :name
+  = f.text_field :name
+  = f.label :details
+  = f.text_area :details
+  = f.label :location
+  = f.text_field :location_name
+  = f.submit

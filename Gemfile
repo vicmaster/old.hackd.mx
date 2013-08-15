@@ -12,6 +12,8 @@ gem 'jquery-rails'
 gem 'sass-rails', '~> 4.0.0'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
+gem 'omniauth-github'
+gem 'httparty'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
@@ -21,6 +23,7 @@ end
 
 group :development do
   gem 'git-pair', git: 'git://github.com/ryanbriones/git-pair.git'
+  gem 'pry'
 end
 
 group :doc do
