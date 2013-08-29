@@ -22,7 +22,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'git-pair', git: 'git://github.com/ryanbriones/git-pair.git'
+  gem 'git-pair'
   gem 'pry'
 end
 
