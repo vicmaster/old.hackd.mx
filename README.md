@@ -21,7 +21,7 @@ $ rails server
 
 ## Demo Online
 
-* Soon on Heroku
+* http://hackd-mx.herokuapp.com/
 
 ## Expected Conventions
 
