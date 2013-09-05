@@ -50,6 +50,7 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    fabrication (2.8.0)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
     git-pair (0.1.0)
@@ -180,6 +181,7 @@ DEPENDENCIES
   capybara
   capybara-webkit
   coffee-rails (~> 4.0.0)
+  fabrication
   git-pair
   haml-rails (~> 0.4)
   httparty
