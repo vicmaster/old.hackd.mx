@@ -1,6 +1,6 @@
 Hackd::Application.routes.draw do
 
-   scope :auth  do 
+   scope :auth  do
      get 'github/callback'=>  'sessions#create'
    end
 
