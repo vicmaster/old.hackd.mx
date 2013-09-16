@@ -28,6 +28,7 @@ group :development do
   gem 'pry'
   gem 'quiet_assets'
   gem 'thin'
+  gem 'annotate', ">=2.5.0"
 end
 
 group :doc do
