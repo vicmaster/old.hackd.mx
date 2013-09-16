@@ -1,5 +1,6 @@
 require 'capybara/rspec'
 require 'simplecov'
+require 'database_cleaner'
 SimpleCov.start 'rails'
 
 ENV["RAILS_ENV"] ||= 'test'
@@ -12,6 +13,10 @@ driver = ENV['DEFAULT_DRIVER'] || 'webkit'
 Capybara.javascript_driver = driver.to_sym
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
+
+DatabaseCleaner.strategy = :truncation
+
+DatabaseCleaner.clean
 
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 

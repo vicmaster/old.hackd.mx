@@ -20,6 +20,7 @@ group :development, :test do
   gem 'capybara-webkit'
   gem 'capybara'
   gem 'fabrication'
+  gem 'database_cleaner'
 end
 
 group :development do
