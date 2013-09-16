@@ -26,6 +26,8 @@ end
 group :development do
   gem 'git-pair'
   gem 'pry'
+  gem 'quiet_assets'
+  gem 'thin'
 end
 
 group :doc do
