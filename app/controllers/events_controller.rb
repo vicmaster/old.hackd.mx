@@ -10,26 +10,33 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
-  def edit
-  end
-
   def show
   end
 
   def create
+    @event = Event.new event_params
+    if @event.save
+      flash[:notice] = 'Successfully created'
+      redirect_to events_path
+    else
+      flash[:error] = "Something went wrong"
+      render new_event_path
+    end
+  end
+
+  def edit
+    @event = Event.find(params[:id])
   end
 
   def update
     @event = Event.find(params[:id])
 
-    if @event.update_attributes(@params)
+    if @event.update event_params
       flash[:notice] = "Event updated successfully"
-
-      redirect_to events_path
+      redirect_to action: :index
     else
       flash[:notice] = "Event wasn't updated as expected"
-
-      redirect_to :back
+      render edit_event_path
     end
   end
 
