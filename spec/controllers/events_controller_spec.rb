@@ -3,7 +3,6 @@ require 'spec_helper'
 describe EventsController do
   def valid_attributes
     {
-      id: 1,
       name: 'test',
       details: 'test',
       location_name: 'test_location'
@@ -34,16 +33,16 @@ describe EventsController do
   end
 
   describe '#new' do
-  	it 'responds successfully with an HTTP 200 status code' do
-	  	get :new
+    before do
+      get :new
+    end
 
+  	it 'responds successfully with an HTTP 200 status code' do
 	  	expect(response).to be_success
 	    expect(response.status).to eq(200)
   	end
 
     it 'renders the new template' do
-      get :new
-
       expect(response).to render_template("new")
     end
   end
@@ -51,27 +50,19 @@ describe EventsController do
   describe '#create' do
   	context 'when success' do
   		it 'redirects to events index' do
-        post :create, event: {
-          name: 'Hackd',
-          details: 'Hackd this wednesday',
-          location_name: 'Baticueva'
-        }
+        post :create, { event: valid_attributes }
 
         expect(response).to be_success
         expect(response.status).to eq(200)
   		end
   	end
 
-    context 'when failure' do
+    context 'when is invalid' do
       it 'should not redirect to events index' do
-        count = Event.count
-        post :create, event: {
-          name: '',
-          details: '',
-          location_name: ''
-        }
+        Event.any_instance.stub(:save).and_return(false)
+        post :create, { event: { name: "invalid value" } }
 
-        assert Event.count == count, 'Something went wrong'
+        expect(response).to render_template("new")
       end
     end
   end
@@ -80,6 +71,7 @@ describe EventsController do
     it' should edit a event' do
       event = Event.create! valid_attributes
       get :edit, { id: event.to_param }
+
       expect(response).to render_template("edit")
     end
   end
