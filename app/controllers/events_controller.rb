@@ -29,11 +29,12 @@ class EventsController < ApplicationController
   end
 
   def update
-    @event = Event.find(params[:id])
+
+    find_event
 
     if @event.update event_params
       flash[:notice] = "Event updated successfully"
-      redirect_to action: :index
+      redirect_to events_path
     else
       flash[:notice] = "Event wasn't updated as expected"
       render edit_event_path
@@ -46,7 +47,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-     @params = params.require(:event).permit(:name, :details, :location)
+     @params = params.require(:event).permit!
   end
 
   def find_event

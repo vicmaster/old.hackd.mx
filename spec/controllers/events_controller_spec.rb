@@ -1,6 +1,15 @@
 require 'spec_helper'
 
 describe EventsController do
+  def valid_attributes
+    {
+      id: 1,
+      name: 'test',
+      details: 'test',
+      location_name: 'test_location'
+    }
+  end
+
   describe 'GET #index' do
   	it 'responds successfully with an HTTP 200 status code' do
   		get :index
@@ -69,43 +78,26 @@ describe EventsController do
 
   describe '#edit' do
     it' should edit a event' do
-       event = Event.create(
-          name: 'test',
-          id: 1,
-          details: 'test',
-          location_name: 'test_location'
-        )
-
-        get :edit, id: event.id
-        expect(response).to render_template("edit")
+      event = Event.create! valid_attributes
+      get :edit, { id: event.to_param }
+      expect(response).to render_template("edit")
     end
   end
 
   describe '#update' do
-    before do
-      @event =  Event.create(
-        name: 'test',
-        id: 1,
-        details: "test",
-        location_name: "test_location"
-      )
-    end
-
     context 'valid information' do
       it 'redirects to index page' do
-        put :update, id: @event.id, event: {
-          name: 'test',
-          id: 1,
-          details: 'test',
-          location_name: 'test_location'
-        }
+        event = Event.create! valid_attributes
+        put :update, { user_id: 1, id: event.to_param, event: valid_attributes }
+
         expect(response).to redirect_to events_path
       end
     end
 
     context 'invalid information' do
       it 'renders the edit page' do
-        put :update, id: @event.id, event: { name: '' }
+        event = Event.create! valid_attributes
+        put :update, { user_id: 1, id: event.to_param, event: { name: "invalid value" } }
 
         expect(response).to render_template("edit")
       end
