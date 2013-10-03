@@ -31,6 +31,7 @@ group :development do
   gem 'quiet_assets'
   gem 'thin'
   gem 'annotate', ">=2.5.0"
+  gem 'rails-erd'
 end
 
 group :doc do
