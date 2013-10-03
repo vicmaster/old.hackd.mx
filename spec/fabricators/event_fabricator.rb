@@ -1,4 +1,4 @@
-Fabricator(:event) do
+Fabricator :event  do
   name 'Event x'
-  user_id 1
+  user { Fabricate :user }
 end

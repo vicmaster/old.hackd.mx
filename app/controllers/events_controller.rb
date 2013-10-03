@@ -37,7 +37,7 @@ class EventsController < ApplicationController
       redirect_to events_path
     else
       flash[:notice] = "Event wasn't updated as expected"
-      render edit_event_path
+      render action: 'edit'
     end
   end
 
@@ -47,7 +47,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-     @params = params.require(:event).permit!
+    @params = params.require(:event).permit!
   end
 
   def find_event

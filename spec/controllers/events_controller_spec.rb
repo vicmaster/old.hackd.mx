@@ -8,14 +8,15 @@ describe EventsController do
       location_name: 'test_location'
     }
   end
+  let(:event){ Fabricate :event }
 
   describe 'GET #index' do
-  	it 'responds successfully with an HTTP 200 status code' do
-  		get :index
+    it 'responds successfully with an HTTP 200 status code' do
+      get :index
 
-	  	expect(response).to be_success
-	    expect(response.status).to eq(200)
-  	end
+      expect(response).to be_success
+      expect(response.status).to eq(200)
+    end
 
     it 'renders the index template' do
       get :index
@@ -24,11 +25,11 @@ describe EventsController do
     end
 
     it 'loads all of the events into @events' do
-    	event1, event2 = Fabricate(:event), Fabricate(:event)
+      event1, event2 = Fabricate(:event), Fabricate(:event)
 
-    	get :index
+      get :index
 
-    	expect(assigns(:events)).to match_array([event1, event2])
+      expect(assigns(:events)).to include(event1, event2)
     end
   end
 
@@ -37,10 +38,10 @@ describe EventsController do
       get :new
     end
 
-  	it 'responds successfully with an HTTP 200 status code' do
-	  	expect(response).to be_success
-	    expect(response.status).to eq(200)
-  	end
+    it 'responds successfully with an HTTP 200 status code' do
+      expect(response).to be_success
+      expect(response.status).to eq(200)
+    end
 
     it 'renders the new template' do
       expect(response).to render_template("new")
@@ -48,14 +49,14 @@ describe EventsController do
   end
 
   describe '#create' do
-  	context 'when success' do
-  		it 'redirects to events index' do
+    context 'when success' do
+      it 'redirects to events index' do
         post :create, { event: valid_attributes }
 
         expect(response).to be_success
         expect(response.status).to eq(200)
-  		end
-  	end
+      end
+    end
 
     context 'when is invalid' do
       it 'should not redirect to events index' do
@@ -69,7 +70,6 @@ describe EventsController do
 
   describe '#edit' do
     it' should edit a event' do
-      event = Event.create! valid_attributes
       get :edit, { id: event.to_param }
 
       expect(response).to render_template("edit")
@@ -79,8 +79,7 @@ describe EventsController do
   describe '#update' do
     context 'valid information' do
       it 'redirects to index page' do
-        event = Event.create! valid_attributes
-        put :update, { user_id: 1, id: event.to_param, event: valid_attributes }
+        put :update, { event: event.attributes, id: event.to_param }
 
         expect(response).to redirect_to events_path
       end
@@ -88,8 +87,8 @@ describe EventsController do
 
     context 'invalid information' do
       it 'renders the edit page' do
-        event = Event.create! valid_attributes
-        put :update, { user_id: 1, id: event.to_param, event: { name: "invalid value" } }
+        params = { id: event.to_param, event: { name: nil } }
+        put :update, params
 
         expect(response).to render_template("edit")
       end
