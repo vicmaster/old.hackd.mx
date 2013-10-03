@@ -14,6 +14,7 @@ gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 gem 'omniauth-github'
 gem 'httparty'
+gem 'fivemat'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'

@@ -58,6 +58,7 @@ GEM
     fabrication (2.8.0)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
+    fivemat (1.2.1)
     git-pair (0.1.0)
     haml (4.0.3)
       tilt
@@ -195,6 +196,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   database_cleaner
   fabrication
+  fivemat
   git-pair
   haml-rails (~> 0.4)
   httparty
