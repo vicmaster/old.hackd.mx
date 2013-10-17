@@ -1,4 +1,4 @@
-class AddOauthFiedsToUser < ActiveRecord::Migration
+class AddOauthFieldsToUser < ActiveRecord::Migration
   def change
     change_table :users do |t|
       t.string :provider
