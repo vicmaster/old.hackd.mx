@@ -1,0 +1,19 @@
+staging:
+  organization: hackd
+  key: XXXXXXXXXXXX
+  secret: XXXXXXXXXXXXXXXXXXXXXXXX
+
+development:
+  organization: hackd
+  key: XXXXXXXXXXXX
+  secret: XXXXXXXXXXXXXXXXXXXXXXXX
+
+production:
+  organization: hackd
+  key: XXXXXXXXXXXX
+  secret: XXXXXXXXXXXXXXXXXXXXXXXX
+
+test:
+  organization: hackd
+  key: XXXXXXXXXXXX
+  secret: XXXXXXXXXXXXXXXXXXXXXXXX
