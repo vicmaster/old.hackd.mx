@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
   def create
     reset_session  #  see http://guides.rubyonrails.org/security.html#session-fixation
 
-    user = User.find_by_provider_and_uid(@auth['provider'], @auth['uid']) ||
+    user = User.find_by(provider: @auth['provider'], uid: @auth['uid']) ||
            User.create_with_omniauth(@auth)
 
     session[:user_uid] = user.uid
