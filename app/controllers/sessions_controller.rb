@@ -6,27 +6,37 @@ class SessionsController < ApplicationController
 
   before_action :belongs_to_organization?, only: :create
 
+  skip_before_filter :authorize
+
   def create
     reset_session  #  see http://guides.rubyonrails.org/security.html#session-fixation
-    session[:name] = @auth["info"]["name"] || @auth["info"]["email"] || @auth["info"]["nickname"] || "fellow Ruby on Rails enthusiast"
+
+    user = User.find_by_provider_and_uid(@auth['provider'], @auth['uid']) ||
+           User.create_with_omniauth(@auth)
+
+    session[:user_uid] = user.uid
+    session[:name] = user.name ||
+                     user.email ||
+                     'fellow Ruby on Rails enthusiast'
+
     redirect_to root_path, :notice => "Welcome #{session[:name]}!"
   end
 
   def destroy
     reset_session
-    flash[:notice] = "Logged out."
+    flash[:notice] = 'Logged out.'
     redirect_to events_path
   end
 
   private
 
   def belongs_to_organization?
-    @auth = request.env["omniauth.auth"]
+    @auth = request.env['omniauth.auth']
 
     url = "#{AUTH_PROVIDER_URL}?access_token=#{@auth[:credentials][:token]}"
     groups_request = HTTParty.get(url)
 
-    organizations = groups_request.map{ |x| x["login"] }
+    organizations = groups_request.map{ |x| x['login'] }
     failure unless organizations.include?(API_GITHUB_CONFIG['organization'])
   end
 
