@@ -12,7 +12,6 @@
 /db/*.sqlite3
 /db/*.sqlite3-journal
 /config/database.yml
-/config/github_omniauth.yml
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp

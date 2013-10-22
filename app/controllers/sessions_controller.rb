@@ -37,7 +37,7 @@ class SessionsController < ApplicationController
     groups_request = HTTParty.get(url)
 
     organizations = groups_request.map{ |x| x['login'] }
-    failure unless organizations.include?(API_GITHUB_CONFIG['organization'])
+    failure unless organizations.include?(ENV['GITHUB_ORGANIZATION'])
   end
 
   def failure
