@@ -35,3 +35,7 @@ $ rails server
 * sudo aptitude install graphviz  # Debian and Ubuntu
 
 more information on the [official github repository](http://github.com/glejeune/Ruby-Graphviz)
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/hackd/hackd.mx/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
