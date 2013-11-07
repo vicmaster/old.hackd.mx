@@ -19,11 +19,7 @@ $ rake db:setup
 $ rails server
 ```
 
-## Demo Online
-
-* http://hackd-mx.herokuapp.com/
-
-## Expected Conventions
+## Conventions
 
 * http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
 * https://github.com/chrisk/git-pair

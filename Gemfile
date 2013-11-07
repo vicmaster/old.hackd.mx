@@ -4,6 +4,7 @@ ruby '1.9.3'
 
 gem 'rails', '4.0.0'
 gem 'pg'
+gem 'puma', '~> 2.6.0'
 
 gem 'angularjs-rails'
 gem 'coffee-rails', '~> 4.0.0'
@@ -22,6 +23,8 @@ group :development, :test do
   gem 'fabrication'
   gem 'database_cleaner'
   gem 'pry-debugger'
+  gem 'git-duet'
+  gem 'dotenv'
 end
 
 group :development do

@@ -58,6 +58,7 @@ GEM
     debugger-linecache (1.2.0)
     debugger-ruby_core_source (1.2.3)
     diff-lcs (1.2.1)
+    dotenv (0.9.0)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -65,6 +66,7 @@ GEM
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
     fivemat (1.2.1)
+    git-duet (0.1.3)
     git-pair (0.1.0)
     haml (4.0.3)
       tilt
@@ -120,6 +122,8 @@ GEM
     pry-debugger (0.2.2)
       debugger (~> 1.3)
       pry (~> 0.9.10)
+    puma (2.6.0)
+      rack (>= 1.1, < 2.0)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
     rack (1.5.2)
@@ -206,8 +210,10 @@ DEPENDENCIES
   capybara-webkit
   coffee-rails (~> 4.0.0)
   database_cleaner
+  dotenv
   fabrication
   fivemat
+  git-duet
   git-pair
   haml-rails (~> 0.4)
   httparty
@@ -216,6 +222,7 @@ DEPENDENCIES
   pg
   pry
   pry-debugger
+  puma (~> 2.6.0)
   quiet_assets
   rails (= 4.0.0)
   rails-erd
