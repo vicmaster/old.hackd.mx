@@ -25,6 +25,7 @@ end
 group :development do
   gem 'git-pair'
   gem 'pry'
+  gem 'rails-erd'
 end
 
 group :doc do
