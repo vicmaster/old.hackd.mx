@@ -14,7 +14,6 @@ gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 gem 'omniauth-github'
 gem 'httparty'
-gem 'fivemat'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
@@ -38,5 +37,6 @@ group :doc do
 end
 
 group :test do
+  gem 'fivemat'
   gem 'simplecov', require: false
 end

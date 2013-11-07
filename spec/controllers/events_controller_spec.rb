@@ -57,17 +57,16 @@ describe EventsController do
     context 'when success' do
       it 'redirects to events index' do
         post :create, { event: valid_attributes }
-        
-        response.should be_success
+
+        response.should redirect_to events_path
       end
     end
 
     context 'when is invalid' do
       it 'should not redirect to events index' do
-        Event.any_instance.stub(:save).and_return(false)
-        post :create, { event: { name: "invalid value" } }
+        post :create, { event: { name: ''} }
 
-        expect(response).to render_template("new")
+        response.should render_template 'new'
       end
     end
   end
