@@ -190,6 +190,7 @@ DEPENDENCIES
   capybara-webkit
   coffee-rails (~> 4.0.0)
   dotenv
+  git-duet
   git-pair
   haml-rails (~> 0.4)
   httparty
