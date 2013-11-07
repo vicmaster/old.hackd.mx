@@ -9,7 +9,7 @@ describe Event do
 	  			"User can't be blank"
 	  		]
 
-	  		subject.valid?
+        subject.should_not be_valid
 
 	  		subject.errors.full_messages.should eql full_error_messages
 	  	end
@@ -20,7 +20,7 @@ describe Event do
   			subject.name    = 'First meeting'
   			subject.user_id = 1
 
-  			subject.valid?
+        subject.should be_valid
 
   			subject.errors.empty?.should be_true
   		end

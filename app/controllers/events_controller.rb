@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :find_event, only: [ :edit, :show ]
+  before_action :find_event, only: [ :edit, :show, :update ]
   before_action :event_params, only: [ :update ]
 
   def index
@@ -29,9 +29,6 @@ class EventsController < ApplicationController
   end
 
   def update
-
-    find_event
-
     if @event.update event_params
       flash[:notice] = "Event updated successfully"
       redirect_to events_path
