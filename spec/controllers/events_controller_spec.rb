@@ -9,6 +9,11 @@ describe EventsController do
     }
   end
   let(:event){ Fabricate :event }
+  let(:user){ event.user }
+
+  before do
+    controller.stub(:current_user).and_return user
+  end
 
   describe 'GET #index' do
     it 'responds successfully with an HTTP 200 status code' do
@@ -52,9 +57,8 @@ describe EventsController do
     context 'when success' do
       it 'redirects to events index' do
         post :create, { event: valid_attributes }
-
-        expect(response).to be_success
-        expect(response.status).to eq(200)
+        
+        response.should be_success
       end
     end
 
