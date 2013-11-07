@@ -29,7 +29,6 @@ group :development do
   gem 'git-pair'
   gem 'pry'
   gem 'quiet_assets'
-  gem 'thin'
   gem 'annotate', ">=2.5.0"
   gem 'rails-erd'
 end
