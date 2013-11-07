@@ -19,6 +19,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 2.0'
   gem 'capybara-webkit'
   gem 'capybara'
+  gem 'dotenv'
 end
 
 group :development do
