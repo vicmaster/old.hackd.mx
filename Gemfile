@@ -20,6 +20,7 @@ group :development, :test do
   gem 'capybara-webkit'
   gem 'capybara'
   gem 'git-duet'
+  gem 'dotenv'
 end
 
 group :development do
