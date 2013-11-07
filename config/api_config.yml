@@ -1,15 +1,15 @@
 github_key: &github_key
-  token: your_token_id 
-  key: your_key 
+  token: ENV['GITHUB_TOKEN']
+  key: ENV['GITHUB_KEY']
   organization: hackd
 
-staging: 
+staging:
   <<: *github_key
 
-development: 
+development:
   <<: *github_key
 
-production: 
+production:
   <<: *github_key
 
 test: 
