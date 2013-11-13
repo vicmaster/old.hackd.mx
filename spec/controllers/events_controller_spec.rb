@@ -58,7 +58,7 @@ describe EventsController do
       it 'redirects to events index' do
         post :create, { event: valid_attributes }
 
-        response.should redirect_to events_path
+        expect(response).to redirect_to events_path
       end
     end
 
@@ -66,7 +66,7 @@ describe EventsController do
       it 'should not redirect to events index' do
         post :create, { event: { name: ''} }
 
-        response.should render_template 'new'
+        expect(response).to render_template 'new'
       end
     end
   end
