@@ -34,7 +34,7 @@ class EventsController < ApplicationController
       redirect_to events_path
     else
       flash[:notice] = "Event wasn't updated as expected"
-      render action: 'edit'
+      render :edit
     end
   end
 
